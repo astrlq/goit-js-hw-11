@@ -54,16 +54,3 @@ async function onSearch(event) {
     form.reset();
   }
 }
-
-showLoader();
-try {
-  const data = await getImagesByQuery(query, page);
-  createGallery(data.hits);
-} catch (error) {
-  iziToast.error({
-    message: 'Something went wrong! Try again later.',
-    position: 'topRight',
-  });
-} finally {
-  hideLoader();
-}
